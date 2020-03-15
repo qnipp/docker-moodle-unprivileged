@@ -35,6 +35,19 @@ The image is built to run with the runAsNonRoot security setting in a k8s enviro
 
 A cron job must be set up, which calls http://moodle/admin/cron.php every minute.
 
+## Configuration
+
+Variable | Description | Default
+---------|-------------|--------
+MOODLE_URL | Sets the URL of the Moodle installation | http://127.0.0.1:8080
+DB_TYPE | Database type | mysqli
+DB_HOST | Database host | 127.0.0.1
+DB_PORT | Database port | 3306
+DB_NAME | Database name | moodle
+DB_USER | Database user | moodle
+DB_PASSWORD | Database password | secret
+SSL_PROXY | Set to true, if the installation is behind a SSL proxy | false
+
 ## Caveats
 The following aren't handled, considered, or need work: 
 * log handling (stdout?)
