@@ -2,9 +2,9 @@
 
 A Dockerfile that installs and runs the latest Moodle 3.8 stable, with external MySQL Database.
 
-It is configured to run unprivileged, e. g. in Kubernetes with the setting mustRunAsNonRoot.
+It is configured to run unprivileged, e. g. in Kubernetes with the setting MustRunAsNonRoot in the pod security policies.
 
-`Note: DB Deployment uses version 5 of MySQL. MySQL:Latest is now v8.`
+Note: DB Deployment uses version 5 of MySQL. MySQL:Latest is now v8.
 
 ## Building
 
@@ -33,7 +33,7 @@ http://localhost:8080
 
 The image is built to run with the runAsNonRoot security setting in a k8s environment.
 
-A cron job must be set up, which calls http://moodle/admin/cron.php every minute.
+A cron job must be set up, which calls http://moodle/admin/cron.php every minute. This can be done by using the curlimages/curl image. Calling the cron job this way must be enabled. It is recommended to set up a password, see https://docs.moodle.org/38/en/Cron#The_web_based_Moodle_cron_command for details.
 
 ## Configuration
 
@@ -48,10 +48,13 @@ DB_USER | Database user | moodle
 DB_PASSWORD | Database password | secret
 SSL_PROXY | Set to true, if the installation is behind a SSL proxy | false
 
-## Caveats
-The following aren't handled, considered, or need work: 
-* log handling (stdout?)
-* email (does it even send?)
+## Logs
+
+The Apache access and error logs are written on stdout.
+
+## E-Mail
+
+Acess to an SMTP service (with SSL/TLS and authentication) can be configured in the Moodle application itself. See https://docs.moodle.org/38/en/Installing_Moodle#Final_configuration for this and other tasks to be performed within Moodle.
 
 ## Credits
 
