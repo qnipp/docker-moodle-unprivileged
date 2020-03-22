@@ -2,6 +2,8 @@
 
 A Dockerfile that installs and runs the latest Moodle 3.8 stable, with external MySQL Database.
 
+Ghostscript and unoconv are included in this image.
+
 It is configured to run unprivileged, e. g. in Kubernetes with the setting MustRunAsNonRoot in the pod security policies.
 
 Note: DB Deployment uses version 5 of MySQL. MySQL:Latest is now v8.
