@@ -1,6 +1,6 @@
 # docker-moodle-unprivileged
 
-A Dockerfile that installs and runs the latest Moodle 3.8 stable, with external MySQL Database.
+A Dockerfile that installs and runs the latest Moodle 3.9 stable, with external MySQL Database.
 
 Ghostscript and unoconv are included in this image.
 
@@ -35,7 +35,7 @@ http://localhost:8080
 
 The image is built to run with the runAsNonRoot security setting in a k8s environment.
 
-A cron job must be set up, which calls http://moodle/admin/cron.php every minute. This can be done by using the curlimages/curl image. Calling the cron job this way must be enabled. It is recommended to set up a password, see https://docs.moodle.org/38/en/Cron#The_web_based_Moodle_cron_command for details.
+A cron job must be set up, which calls http://moodle/admin/cron.php every minute. This can be done by using the curlimages/curl image. Calling the cron job this way must be enabled. It is recommended to set up a password, see https://docs.moodle.org/39/en/Cron#The_web_based_Moodle_cron_command for details.
 
 ## Configuration
 
@@ -56,7 +56,7 @@ The Apache access and error logs are written on stdout.
 
 ## E-Mail
 
-Acess to an SMTP service (with SSL/TLS and authentication) can be configured in the Moodle application itself. See https://docs.moodle.org/38/en/Installing_Moodle#Final_configuration for this and other tasks to be performed within Moodle.
+Acess to an SMTP service (with SSL/TLS and authentication) can be configured in the Moodle application itself. See https://docs.moodle.org/39/en/Installing_Moodle#Final_configuration for this and other tasks to be performed within Moodle.
 
 ## Credits
 
